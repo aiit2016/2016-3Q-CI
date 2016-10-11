@@ -1,2 +1,2 @@
-# 2016-3Q-CI
-Mini Iaas platform simulator.
+# 2016-3Q-SP
+Secure programming course.
