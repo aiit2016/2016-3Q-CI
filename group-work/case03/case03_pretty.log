@@ -1,0 +1,7 @@
+
+Memory not freed:
+-----------------
+   Address     Size     Caller
+0x0804b378     0x64  at /vagrant/cwork/git/2016-3Q-SP/group-work/case03/case03.c:14 (discriminator 2)
+0x0804b3e0     0x64  at /vagrant/cwork/git/2016-3Q-SP/group-work/case03/case03.c:14 (discriminator 2)
+0x0804b448    0x100  at /vagrant/cwork/git/2016-3Q-SP/group-work/case03/case03.c:20
