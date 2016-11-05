@@ -1,5 +1,8 @@
 // gcc -g -o case03 case03.c
-// valgrind --leak-check=yes ./case03 > case03.log
+// export MALLOC_TRACE=./case03.log
+// ./case03
+// mtrace case03 $MALLOC_TRACE > ./case03_pretty.log
+// valgrind --leak-check=yes ./case03 2> case03_valgrind.log
 #include <mcheck.h>
 #include <stdlib.h>
 #include <stdio.h>
