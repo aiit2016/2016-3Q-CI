@@ -1,0 +1,168 @@
+==7395== Memcheck, a memory error detector
+==7395== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==7395== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==7395== Command: ./full
+==7395== 
+--7395-- Valgrind options:
+--7395--    --leak-check=full
+--7395--    --track-origins=yes
+--7395--    -v
+--7395-- Contents of /proc/version:
+--7395--   Linux version 3.13.0-87-generic (buildd@lgw01-33) (gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) ) #133-Ubuntu SMP Tue May 24 18:33:01 UTC 2016
+--7395-- Arch and hwcaps: X86, LittleEndian, x86-mmxext-sse1-sse2
+--7395-- Page sizes: currently 4096, max supported 4096
+--7395-- Valgrind library directory: /usr/lib/valgrind
+--7395-- Reading syms from /lib/i386-linux-gnu/ld-2.19.so
+--7395--   Considering /lib/i386-linux-gnu/ld-2.19.so ..
+--7395--   .. CRC mismatch (computed 1b1c4cf5 wanted 02b590da)
+--7395--   Considering /usr/lib/debug/lib/i386-linux-gnu/ld-2.19.so ..
+--7395--   .. CRC is valid
+--7395-- Reading syms from /vagrant/cwork/git/2016-3Q-SP/group-work/case02_full/full
+--7395-- Reading syms from /usr/lib/valgrind/memcheck-x86-linux
+--7395--   Considering /usr/lib/valgrind/memcheck-x86-linux ..
+--7395--   .. CRC mismatch (computed a1851f40 wanted a7f53555)
+--7395--    object doesn't have a symbol table
+--7395--    object doesn't have a dynamic symbol table
+--7395-- Scheduler: using generic scheduler lock implementation.
+--7395-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==7395== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-7395-by-vagrant-on-???
+==7395== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-7395-by-vagrant-on-???
+==7395== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-7395-by-vagrant-on-???
+==7395== 
+==7395== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==7395== don't want to do, unless you know exactly what you're doing,
+==7395== or are doing some strange experiment):
+==7395==   /usr/lib/valgrind/../../bin/vgdb --pid=7395 ...command...
+==7395== 
+==7395== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==7395==   /path/to/gdb ./full
+==7395== and then give GDB the following command
+==7395==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=7395
+==7395== --pid is optional if only one valgrind process is running
+==7395== 
+--7395-- REDIR: 0x4017e90 (ld-linux.so.2:strlen) redirected to 0x380755e2 (???)
+--7395-- REDIR: 0x4017ca0 (ld-linux.so.2:index) redirected to 0x380755bd (???)
+--7395-- Reading syms from /usr/lib/valgrind/vgpreload_core-x86-linux.so
+--7395--   Considering /usr/lib/valgrind/vgpreload_core-x86-linux.so ..
+--7395--   .. CRC mismatch (computed d3e3f8e8 wanted ff94bb6b)
+--7395--    object doesn't have a symbol table
+--7395-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so
+--7395--   Considering /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so ..
+--7395--   .. CRC mismatch (computed 3a29cef8 wanted 4be4f0fe)
+--7395--    object doesn't have a symbol table
+==7395== WARNING: new redirection conflicts with existing -- ignoring it
+--7395--     old: 0x04017e90 (strlen              ) R-> (0000.0) 0x380755e2 ???
+--7395--     new: 0x04017e90 (strlen              ) R-> (2007.0) 0x0402d480 strlen
+--7395-- Reading syms from /lib/i386-linux-gnu/libc-2.19.so
+--7395--   Considering /lib/i386-linux-gnu/libc-2.19.so ..
+--7395--   .. CRC mismatch (computed 1039bceb wanted 920e1817)
+--7395--   Considering /usr/lib/debug/lib/i386-linux-gnu/libc-2.19.so ..
+--7395--   .. CRC is valid
+--7395-- REDIR: 0x40baf40 (libc.so.6:strnlen) redirected to 0x4024580 (_vgnU_ifunc_wrapper)
+--7395-- REDIR: 0x40bcef0 (libc.so.6:strncasecmp) redirected to 0x4024580 (_vgnU_ifunc_wrapper)
+--7395-- REDIR: 0x40c2870 (libc.so.6:memrchr) redirected to 0x4024580 (_vgnU_ifunc_wrapper)
+--7395-- REDIR: 0x40d58b0 (libc.so.6:wcslen) redirected to 0x4024580 (_vgnU_ifunc_wrapper)
+--7395-- REDIR: 0x40bb0f0 (libc.so.6:__GI_strrchr) redirected to 0x402ce50 (__GI_strrchr)
+--7395-- REDIR: 0x40b6830 (libc.so.6:malloc) redirected to 0x402a110 (malloc)
+--7395-- REDIR: 0x40b6de0 (libc.so.6:free) redirected to 0x402b370 (free)
+==7395== Conditional jump or move depends on uninitialised value(s)
+==7395==    at 0x8048492: main (full.c:12)
+==7395==  Uninitialised value was created by a stack allocation
+==7395==    at 0x8048453: main (full.c:6)
+==7395== 
+==7395== Invalid write of size 4
+==7395==    at 0x804849B: main (full.c:13)
+==7395==  Address 0x41f102c is 0 bytes after a block of size 4 alloc'd
+==7395==    at 0x402A17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==7395==    by 0x8048469: main (full.c:9)
+==7395== 
+==7395== Invalid read of size 4
+==7395==    at 0x80484B4: main (full.c:16)
+==7395==  Address 0x41f1030 is 4 bytes after a block of size 4 alloc'd
+==7395==    at 0x402A17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==7395==    by 0x8048469: main (full.c:9)
+==7395== 
+==7395== Invalid read of size 4
+==7395==    at 0x80484C1: main (full.c:17)
+==7395==  Address 0x41f1064 is 4 bytes inside a block of size 8 free'd
+==7395==    at 0x402B3D8: free (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==7395==    by 0x8048489: main (full.c:10)
+==7395== 
+==7395== Invalid write of size 4
+==7395==    at 0x80484D4: main (full.c:18)
+==7395==  Address 0x41f1060 is 0 bytes inside a block of size 8 free'd
+==7395==    at 0x402B3D8: free (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==7395==    by 0x8048489: main (full.c:10)
+==7395== 
+==7395== Syscall param exit_group(status) contains uninitialised byte(s)
+==7395==    at 0x40F5F34: _Exit (_exit.S:33)
+==7395==  Uninitialised value was created by a stack allocation
+==7395==    at 0x8048453: main (full.c:6)
+==7395== 
+==7395== 
+==7395== HEAP SUMMARY:
+==7395==     in use at exit: 4 bytes in 1 blocks
+==7395==   total heap usage: 2 allocs, 1 frees, 12 bytes allocated
+==7395== 
+==7395== Searching for pointers to 1 not-freed blocks
+==7395== Checked 54,812 bytes
+==7395== 
+==7395== 4 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==7395==    at 0x402A17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==7395==    by 0x8048469: main (full.c:9)
+==7395== 
+==7395== LEAK SUMMARY:
+==7395==    definitely lost: 4 bytes in 1 blocks
+==7395==    indirectly lost: 0 bytes in 0 blocks
+==7395==      possibly lost: 0 bytes in 0 blocks
+==7395==    still reachable: 0 bytes in 0 blocks
+==7395==         suppressed: 0 bytes in 0 blocks
+==7395== 
+==7395== ERROR SUMMARY: 7 errors from 7 contexts (suppressed: 0 from 0)
+==7395== 
+==7395== 1 errors in context 1 of 7:
+==7395== Syscall param exit_group(status) contains uninitialised byte(s)
+==7395==    at 0x40F5F34: _Exit (_exit.S:33)
+==7395==  Uninitialised value was created by a stack allocation
+==7395==    at 0x8048453: main (full.c:6)
+==7395== 
+==7395== 
+==7395== 1 errors in context 2 of 7:
+==7395== Invalid write of size 4
+==7395==    at 0x80484D4: main (full.c:18)
+==7395==  Address 0x41f1060 is 0 bytes inside a block of size 8 free'd
+==7395==    at 0x402B3D8: free (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==7395==    by 0x8048489: main (full.c:10)
+==7395== 
+==7395== 
+==7395== 1 errors in context 3 of 7:
+==7395== Invalid read of size 4
+==7395==    at 0x80484C1: main (full.c:17)
+==7395==  Address 0x41f1064 is 4 bytes inside a block of size 8 free'd
+==7395==    at 0x402B3D8: free (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==7395==    by 0x8048489: main (full.c:10)
+==7395== 
+==7395== 
+==7395== 1 errors in context 4 of 7:
+==7395== Invalid read of size 4
+==7395==    at 0x80484B4: main (full.c:16)
+==7395==  Address 0x41f1030 is 4 bytes after a block of size 4 alloc'd
+==7395==    at 0x402A17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==7395==    by 0x8048469: main (full.c:9)
+==7395== 
+==7395== 
+==7395== 1 errors in context 5 of 7:
+==7395== Invalid write of size 4
+==7395==    at 0x804849B: main (full.c:13)
+==7395==  Address 0x41f102c is 0 bytes after a block of size 4 alloc'd
+==7395==    at 0x402A17C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==7395==    by 0x8048469: main (full.c:9)
+==7395== 
+==7395== 
+==7395== 1 errors in context 6 of 7:
+==7395== Conditional jump or move depends on uninitialised value(s)
+==7395==    at 0x8048492: main (full.c:12)
+==7395==  Uninitialised value was created by a stack allocation
+==7395==    at 0x8048453: main (full.c:6)
+==7395== 
+==7395== ERROR SUMMARY: 7 errors from 7 contexts (suppressed: 0 from 0)

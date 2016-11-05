@@ -1,5 +1,5 @@
-// gcc -g -o case01 case01.c
-// valgrind --leak-check=full --track-origins=yes -v ./case01 2> case01.log
+// gcc -g -o full full.c
+// valgrind --leak-check=full --track-origins=yes -v ./full 2> full.log
 #include <stdlib.h>
 
 int main(int argc, char *argv[])
